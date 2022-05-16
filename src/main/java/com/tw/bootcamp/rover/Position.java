@@ -41,4 +41,8 @@ public class Position {
             return true;
         return false;
     }
+
+    public boolean isFacing(Direction direction) {
+        return this.direction == direction;
+    }
 }
