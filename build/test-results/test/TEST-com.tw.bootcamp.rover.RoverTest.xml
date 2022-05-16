@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.tw.bootcamp.rover.RoverTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2022-05-16T15:03:45" hostname="NT-IT-LT-1995" time="0.017">
+  <properties/>
+  <testcase name="shouldMoveToZero_One_North_WhenInstructionIs_Zero_Zero_North_Move()" classname="com.tw.bootcamp.rover.RoverTest" time="0.015"/>
+  <testcase name="shouldMoveToTwo_Two_South_WhenInstructionIs_Two_three_South_Move()" classname="com.tw.bootcamp.rover.RoverTest" time="0.001"/>
+  <testcase name="ShouldFaceWestWhenRotateLeftWhileFacingNorth()" classname="com.tw.bootcamp.rover.RoverTest" time="0.001"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
