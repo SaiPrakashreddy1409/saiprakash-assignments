@@ -8,9 +8,9 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class RoverTest {
     @Test
-    public void shouldMoveToZero_One_North_WhenInstructionIs_Zero_Zero_North_Move(){
+    public void shouldMoveToZero_One_North_WhenInstructionIs_Zero_Zero_North_Move() {
         Direction direction = Direction.NORTH;
-        Rover rover = new Rover(new Position(0,0,direction));
+        Rover rover = new Rover(new Position(0, 0, direction));
 
         Position position = rover.move();
 
@@ -18,9 +18,9 @@ public class RoverTest {
     }
 
     @Test
-    public void shouldMoveToZero_One_South_WhenInstructionIs_Zero_Zero_North_Move(){
+    public void shouldMoveToZero_One_South_WhenInstructionIs_Zero_Zero_North_Move() {
         Direction direction = Direction.SOUTH;
-        Rover rover = new Rover(new Position(2,3, direction));
+        Rover rover = new Rover(new Position(2, 3, direction));
 
         Position position = rover.move();
 
@@ -28,9 +28,9 @@ public class RoverTest {
     }
 
     @Test
-    public void ShouldFaceWestAfterRotatedLeftWhileFacingNorth(){
+    public void ShouldFaceWestAfterRotatedLeftWhileFacingNorth() {
         Direction direction = Direction.NORTH;
-        Rover rover = new Rover(new Position(2,3, direction));
+        Rover rover = new Rover(new Position(2, 3, direction));
 
         Position position = rover.rotate("L");
 
@@ -38,26 +38,38 @@ public class RoverTest {
     }
 
     @Test
-    public void ShouldFaceNorthAfterRotatedRightWhileFacingWest(){
+    public void ShouldFaceNorthAfterRotatedRightWhileFacingWest() {
         Direction direction = Direction.WEST;
-        Rover rover = new Rover(new Position(2,3, direction));
+        Rover rover = new Rover(new Position(2, 3, direction));
 
         Position position = rover.rotate("R");
 
         assertTrue(position.isFacing(Direction.NORTH));
     }
 
-//    1 2 N LMLMLMLMM - Expected Input
-//    1 3 N - Expected Output
     @Test
-    public void ShouldReachTheDesiredOutput(){
-        Position initialPosition = new Position(1,2,Direction.NORTH);
+    public void ShouldMoveForwardByTwoMoves() {
+        Position initialPosition = new Position(1, 2, Direction.NORTH);
+        Rover rover = new Rover(initialPosition);
+
+        Position finalPosition = rover.performCommand("MMLLLL");
+
+        assertTrue(finalPosition.isAt(1, 4));
+        assertTrue(finalPosition.isFacing(Direction.NORTH));
+    }
+
+    //    1 2 N LMLMLMLMM - Expected Input
+    //    1 3 N - Expected Output
+    @Test
+    public void ShouldReachTheDesiredOutput() {
+        Position initialPosition = new Position(1, 2, Direction.NORTH);
         Rover rover = new Rover(initialPosition);
 
         Position finalPosition = rover.performCommand("LMLMLMLMM");
 
-        assertTrue(finalPosition.isAt(1,3));
+        assertTrue(finalPosition.isAt(1, 3));
         assertTrue(finalPosition.isFacing(Direction.NORTH));
     }
+
 
 }
